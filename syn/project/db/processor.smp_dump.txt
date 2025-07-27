@@ -1,0 +1,18 @@
+
+State Machine - |processor|CU:cu|state
+Name state.DIVWB state.DIVALU state.MULWB state.MULALU state.STOREMEM state.STOREALU state.LOADWB state.LOADMEM state.LOADALU state.SUBWB state.SUBALU state.ADDWB state.ADDALU state.DEC state.0000000 
+state.0000000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.DEC 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.ADDALU 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.ADDWB 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.SUBALU 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.SUBWB 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.LOADALU 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.LOADMEM 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.LOADWB 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.STOREALU 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.STOREMEM 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.MULALU 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.MULWB 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.DIVALU 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.DIVWB 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

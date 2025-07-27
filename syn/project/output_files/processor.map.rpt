@@ -1,0 +1,689 @@
+Analysis & Synthesis report for processor
+Sun Jul 27 18:19:47 2025
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |processor|CU:cu|state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Port Connectivity Checks: "ALU:alu|DIV:dividerModule"
+ 15. Port Connectivity Checks: "ALU:alu|MUL:aasd"
+ 16. Port Connectivity Checks: "ALU:alu"
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Jul 27 18:19:47 2025      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; processor                                  ;
+; Top-level Entity Name              ; processor                                  ;
+; Family                             ; Cyclone IV GX                              ;
+; Total logic elements               ; 3,738                                      ;
+;     Total combinational functions  ; 2,088                                      ;
+;     Dedicated logic registers      ; 2,026                                      ;
+; Total registers                    ; 2026                                       ;
+; Total pins                         ; 18                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total GXB Receiver Channel PCS     ; 0                                          ;
+; Total GXB Receiver Channel PMA     ; 0                                          ;
+; Total GXB Transmitter Channel PCS  ; 0                                          ;
+; Total GXB Transmitter Channel PMA  ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; processor          ; processor          ;
+; Family name                                                                ; Cyclone IV GX      ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 10          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 5           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-5         ; < 0.1%      ;
+;     Processors 6-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                     ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                 ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------+---------+
+; processor.v                      ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Asus/Desktop/DSD/syn/processor.v    ;         ;
+; cu.v                             ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Asus/Desktop/DSD/syn/cu.v           ;         ;
+; registerfile.v                   ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Asus/Desktop/DSD/syn/registerfile.v ;         ;
+; alu.v                            ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Asus/Desktop/DSD/syn/alu.v          ;         ;
+; csa.v                            ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Asus/Desktop/DSD/syn/csa.v          ;         ;
+; mul.v                            ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Asus/Desktop/DSD/syn/mul.v          ;         ;
+; shiftaddmul.v                    ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Asus/Desktop/DSD/syn/shiftaddmul.v  ;         ;
+; div.v                            ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Asus/Desktop/DSD/syn/div.v          ;         ;
+; memory.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Asus/Desktop/DSD/syn/memory.v       ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------+---------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++--------------------------+------------------+
+; Resource                 ; Usage            ;
++--------------------------+------------------+
+; I/O pins                 ; 18               ;
+; DSP block 9-bit elements ; 0                ;
+; Maximum fan-out node     ; clk~input        ;
+; Maximum fan-out          ; 2026             ;
+; Total fan-out            ; 13626            ;
+; Average fan-out          ; 3.28             ;
++--------------------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------+--------------+
+; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                   ; Library Name ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------+--------------+
+; |processor                           ; 2088 (56)         ; 2026 (48)    ; 0           ; 0            ; 0       ; 0         ; 0         ; 18   ; 0            ; |processor                                            ; work         ;
+;    |ALU:alu|                         ; 589 (251)         ; 229 (5)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|ALU:alu                                    ; work         ;
+;       |CSA:ADDER|                    ; 28 (28)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|ALU:alu|CSA:ADDER                          ; work         ;
+;       |CSA:SIGNED_SUBTRACTOR|        ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|ALU:alu|CSA:SIGNED_SUBTRACTOR              ; work         ;
+;       |DIV:dividerModule|            ; 160 (160)         ; 100 (100)    ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|ALU:alu|DIV:dividerModule                  ; work         ;
+;       |MUL:aasd|                     ; 120 (24)          ; 124 (0)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|ALU:alu|MUL:aasd                           ; work         ;
+;          |shiftaddmul:abaaadad|      ; 30 (30)           ; 36 (36)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|ALU:alu|MUL:aasd|shiftaddmul:abaaadad      ; work         ;
+;          |shiftaddmul:sdfsfrg|       ; 41 (41)           ; 56 (56)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg       ; work         ;
+;          |shiftaddmul:sdsds333ntyuk| ; 25 (25)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk ; work         ;
+;    |CU:cu|                           ; 61 (61)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|CU:cu                                      ; work         ;
+;    |memory:mem|                      ; 1246 (1246)       ; 1632 (1632)  ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|memory:mem                                 ; work         ;
+;    |registerFile:regFile|            ; 136 (136)         ; 96 (96)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |processor|registerFile:regFile                       ; work         ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |processor|CU:cu|state                                                                                                                                                                                                          ;
++----------------+-------------+--------------+-------------+--------------+----------------+----------------+--------------+---------------+---------------+-------------+--------------+-------------+--------------+-----------+---------------+
+; Name           ; state.DIVWB ; state.DIVALU ; state.MULWB ; state.MULALU ; state.STOREMEM ; state.STOREALU ; state.LOADWB ; state.LOADMEM ; state.LOADALU ; state.SUBWB ; state.SUBALU ; state.ADDWB ; state.ADDALU ; state.DEC ; state.0000000 ;
++----------------+-------------+--------------+-------------+--------------+----------------+----------------+--------------+---------------+---------------+-------------+--------------+-------------+--------------+-----------+---------------+
+; state.0000000  ; 0           ; 0            ; 0           ; 0            ; 0              ; 0              ; 0            ; 0             ; 0             ; 0           ; 0            ; 0           ; 0            ; 0         ; 0             ;
+; state.DEC      ; 0           ; 0            ; 0           ; 0            ; 0              ; 0              ; 0            ; 0             ; 0             ; 0           ; 0            ; 0           ; 0            ; 1         ; 1             ;
+; state.ADDALU   ; 0           ; 0            ; 0           ; 0            ; 0              ; 0              ; 0            ; 0             ; 0             ; 0           ; 0            ; 0           ; 1            ; 0         ; 1             ;
+; state.ADDWB    ; 0           ; 0            ; 0           ; 0            ; 0              ; 0              ; 0            ; 0             ; 0             ; 0           ; 0            ; 1           ; 0            ; 0         ; 1             ;
+; state.SUBALU   ; 0           ; 0            ; 0           ; 0            ; 0              ; 0              ; 0            ; 0             ; 0             ; 0           ; 1            ; 0           ; 0            ; 0         ; 1             ;
+; state.SUBWB    ; 0           ; 0            ; 0           ; 0            ; 0              ; 0              ; 0            ; 0             ; 0             ; 1           ; 0            ; 0           ; 0            ; 0         ; 1             ;
+; state.LOADALU  ; 0           ; 0            ; 0           ; 0            ; 0              ; 0              ; 0            ; 0             ; 1             ; 0           ; 0            ; 0           ; 0            ; 0         ; 1             ;
+; state.LOADMEM  ; 0           ; 0            ; 0           ; 0            ; 0              ; 0              ; 0            ; 1             ; 0             ; 0           ; 0            ; 0           ; 0            ; 0         ; 1             ;
+; state.LOADWB   ; 0           ; 0            ; 0           ; 0            ; 0              ; 0              ; 1            ; 0             ; 0             ; 0           ; 0            ; 0           ; 0            ; 0         ; 1             ;
+; state.STOREALU ; 0           ; 0            ; 0           ; 0            ; 0              ; 1              ; 0            ; 0             ; 0             ; 0           ; 0            ; 0           ; 0            ; 0         ; 1             ;
+; state.STOREMEM ; 0           ; 0            ; 0           ; 0            ; 1              ; 0              ; 0            ; 0             ; 0             ; 0           ; 0            ; 0           ; 0            ; 0         ; 1             ;
+; state.MULALU   ; 0           ; 0            ; 0           ; 1            ; 0              ; 0              ; 0            ; 0             ; 0             ; 0           ; 0            ; 0           ; 0            ; 0         ; 1             ;
+; state.MULWB    ; 0           ; 0            ; 1           ; 0            ; 0              ; 0              ; 0            ; 0             ; 0             ; 0           ; 0            ; 0           ; 0            ; 0         ; 1             ;
+; state.DIVALU   ; 0           ; 1            ; 0           ; 0            ; 0              ; 0              ; 0            ; 0             ; 0             ; 0           ; 0            ; 0           ; 0            ; 0         ; 1             ;
+; state.DIVWB    ; 1           ; 0            ; 0           ; 0            ; 0              ; 0              ; 0            ; 0             ; 0             ; 0           ; 0            ; 0           ; 0            ; 0         ; 1             ;
++----------------+-------------+--------------+-------------+--------------+----------------+----------------+--------------+---------------+---------------+-------------+--------------+-------------+--------------+-----------+---------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; CU:cu|nstate.ADDWB_605                              ; CU:cu|Selector19    ; yes                    ;
+; CU:cu|nstate.SUBWB_570                              ; CU:cu|Selector19    ; yes                    ;
+; CU:cu|nstate.LOADWB_516                             ; CU:cu|Selector19    ; yes                    ;
+; CU:cu|nstate.STOREMEM_481                           ; CU:cu|Selector19    ; yes                    ;
+; CU:cu|nstate.MULWB_443                              ; CU:cu|Selector19    ; yes                    ;
+; CU:cu|nstate.DIVWB_405                              ; CU:cu|Selector19    ; yes                    ;
+; CU:cu|nstate.ADDALU_621                             ; GND                 ; yes                    ;
+; CU:cu|nstate.DEC_640                                ; CU:cu|Selector19    ; yes                    ;
+; CU:cu|nstate.SUBALU_586                             ; GND                 ; yes                    ;
+; CU:cu|nstate.LOADMEM_535                            ; CU:cu|Selector19    ; yes                    ;
+; CU:cu|nstate.STOREALU_497                           ; GND                 ; yes                    ;
+; CU:cu|nstate.MULALU_462                             ; CU:cu|Selector19    ; yes                    ;
+; CU:cu|nstate.DIVALU_424                             ; CU:cu|Selector19    ; yes                    ;
+; CU:cu|nstate.IF_659                                 ; CU:cu|Selector19    ; yes                    ;
+; ALU:alu|start                                       ; CU:cu|WideOr5       ; yes                    ;
+; CU:cu|nstate.LOADALU_551                            ; GND                 ; yes                    ;
+; ALU:alu|divB[15]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[15]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[14]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[13]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[12]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[11]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[10]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[9]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[8]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[7]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[6]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[5]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[4]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[3]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[2]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[1]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divB[0]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[14]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[13]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[12]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[11]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[10]                                    ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[9]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[8]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[7]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[6]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[5]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[4]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[3]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[2]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[1]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|divA[0]                                     ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[4]                               ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[3]                               ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[2]                               ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[1]                               ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[0]                               ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[0]                             ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[5]                               ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[6]                               ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[8]                               ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[8]                             ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[7]                               ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[9]                               ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[10]                              ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[11]                              ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[12]                              ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[13]                              ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[14]                              ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplier[15]                              ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[1]                             ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[9]                             ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[2]                             ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[10]                            ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[3]                             ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[11]                            ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[4]                             ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[12]                            ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[5]                             ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[13]                            ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[6]                             ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[14]                            ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[7]                             ; ALU:alu|Decoder0    ; yes                    ;
+; ALU:alu|multiplicand[15]                            ; ALU:alu|Decoder0    ; yes                    ;
+; Number of user-specified and inferred latches = 80  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                ;
++----------------------------------------------------------------+------------------------------------------------------------------+
+; Register name                                                  ; Reason for Removal                                               ;
++----------------------------------------------------------------+------------------------------------------------------------------+
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|out[8..15]          ; Lost fanout                                                      ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|out[8..15]               ; Lost fanout                                                      ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|count[3]                  ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|count[3]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|count[3]            ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|count[3]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|count[2]                  ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|count[2]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|count[2]            ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|count[2]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|count[1]                  ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|count[1]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|count[1]            ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|count[1]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|count[0]                  ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|count[0]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|count[0]            ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|count[0]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|multiplier[10]            ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[10] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplier[10]      ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[10] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|multiplier[11]            ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[11] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplier[11]      ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[11] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|multiplier[12]            ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[12] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplier[12]      ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[12] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|multiplier[13]            ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[13] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplier[13]      ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[13] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|multiplier[14]            ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[14] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplier[14]      ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[14] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|multiplier[15]            ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[15] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplier[15]      ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[15] ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|multiplier[9]             ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[9]  ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplier[9]       ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[9]  ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|multiplier[8]             ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[8]  ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplier[8]       ; Merged with ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[8]  ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[8..15]        ; Stuck at GND due to stuck port data_in                           ;
+; CU:cu|state~2                                                  ; Lost fanout                                                      ;
+; CU:cu|state~3                                                  ; Lost fanout                                                      ;
+; CU:cu|state~4                                                  ; Lost fanout                                                      ;
+; CU:cu|state~5                                                  ; Lost fanout                                                      ;
+; CU:cu|state~6                                                  ; Lost fanout                                                      ;
+; CU:cu|state~7                                                  ; Lost fanout                                                      ;
+; CU:cu|state~8                                                  ; Lost fanout                                                      ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplicand[8..15] ; Lost fanout                                                      ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[8..15]      ; Lost fanout                                                      ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|product[8..15]      ; Lost fanout                                                      ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|product[8..15]           ; Lost fanout                                                      ;
+; Total Number of Removed Registers = 87                         ;                                                                  ;
++----------------------------------------------------------------+------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                            ;
++-------------------------------------------------------------+---------------------------+--------------------------------------------------------------+
+; Register name                                               ; Reason for Removal        ; Registers Removed due to This Register                       ;
++-------------------------------------------------------------+---------------------------+--------------------------------------------------------------+
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[15]        ; Stuck at GND              ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[14],        ;
+;                                                             ; due to stuck port data_in ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[13],        ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[12],        ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[11],        ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[10],        ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[9],         ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplier[8]          ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplicand[15] ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplicand[14], ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplicand[13], ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplicand[12], ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplicand[11], ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplicand[10], ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplicand[9],  ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplicand[8]   ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[15]      ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[14],      ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[13],      ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[12],      ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[11],      ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[10],      ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[9],       ;
+;                                                             ;                           ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[8]        ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|out[8]           ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|product[8]        ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|out[9]           ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|product[9]        ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|out[10]          ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|product[10]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|out[11]          ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|product[11]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|out[12]          ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|product[12]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|out[13]          ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|product[13]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|out[14]          ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|product[14]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|out[15]          ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|product[15]       ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|out[8]                ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|product[8]             ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|out[9]                ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|product[9]             ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|out[10]               ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|product[10]            ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|out[11]               ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|product[11]            ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|out[12]               ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|product[12]            ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|out[13]               ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|product[13]            ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|out[14]               ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|product[14]            ;
+; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|out[15]               ; Lost Fanouts              ; ALU:alu|MUL:aasd|shiftaddmul:abaaadad|product[15]            ;
++-------------------------------------------------------------+---------------------------+--------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2026  ;
+; Number of registers using Synchronous Clear  ; 93    ;
+; Number of registers using Synchronous Load   ; 70    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1884  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|PC[9]                                                      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |processor|registerFile:regFile|rdata2[14]                            ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |processor|registerFile:regFile|rdata1[10]                            ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; Yes        ; |processor|ALU:alu|DIV:dividerModule|remainder[16]                    ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |processor|ALU:alu|DIV:dividerModule|abs_A[14]                        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |processor|ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[0]      ;
+; 3:1                ; 27 bits   ; 54 LEs        ; 27 LEs               ; 27 LEs                 ; Yes        ; |processor|ALU:alu|MUL:aasd|shiftaddmul:abaaadad|multiplicand[12]     ;
+; 3:1                ; 42 bits   ; 84 LEs        ; 42 LEs               ; 42 LEs                 ; Yes        ; |processor|ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|multiplicand[1] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|registerFile:regFile|regs[3][15]                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|registerFile:regFile|regs[2][7]                            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|registerFile:regFile|regs[1][7]                            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|registerFile:regFile|regs[0][15]                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[13][3]                                      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[12][7]                                      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[11][12]                                     ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[10][6]                                      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[9][5]                                       ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[8][1]                                       ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[7][6]                                       ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[6][15]                                      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[5][15]                                      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[4][1]                                       ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[3][7]                                       ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[2][6]                                       ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[1][9]                                       ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|memory:mem|MEM[0][14]                                      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|ALU:alu|MUL:aasd|shiftaddmul:sdfsfrg|product[13]           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|ALU:alu|MUL:aasd|shiftaddmul:sdsds333ntyuk|product[4]      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |processor|ALU:alu|MUL:aasd|shiftaddmul:abaaadad|product[3]           ;
+; 101:1              ; 16 bits   ; 1072 LEs      ; 1072 LEs             ; 0 LEs                  ; Yes        ; |processor|memory:mem|dataOut[10]                                     ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |processor|ALU:alu|Mux12                                              ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 15 LEs               ; 3 LEs                  ; No         ; |processor|ALU:alu|Mux8                                               ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 15 LEs               ; 3 LEs                  ; No         ; |processor|ALU:alu|Mux4                                               ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 15 LEs               ; 3 LEs                  ; No         ; |processor|ALU:alu|Mux0                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:alu|DIV:dividerModule"                                                               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; S[31..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:alu|MUL:aasd"                                                                        ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; S[31..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:alu"                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; carry ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; zero  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Sun Jul 27 18:19:42 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processor -c processor
+Info (11104): Parallel Compilation has detected 16 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 10 of the 10 physical processors detected instead.
+Warning (12125): Using design file processor.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: processor
+Info (12127): Elaborating entity "processor" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at processor.v(98): truncated value with size 32 to match size of target (16)
+Warning (12125): Using design file cu.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: CU
+Info (12128): Elaborating entity "CU" for hierarchy "CU:cu"
+Warning (10036): Verilog HDL or VHDL warning at cu.v(8): object "check" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at cu.v(30): truncated value with size 32 to match size of target (6)
+Warning (10240): Verilog HDL Always Construct warning at cu.v(37): inferring latch(es) for variable "nstate", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "nstate.DIVWB" at cu.v(37)
+Info (10041): Inferred latch for "nstate.DIVALU" at cu.v(37)
+Info (10041): Inferred latch for "nstate.MULWB" at cu.v(37)
+Info (10041): Inferred latch for "nstate.MULALU" at cu.v(37)
+Info (10041): Inferred latch for "nstate.STOREMEM" at cu.v(37)
+Info (10041): Inferred latch for "nstate.STOREALU" at cu.v(37)
+Info (10041): Inferred latch for "nstate.LOADWB" at cu.v(37)
+Info (10041): Inferred latch for "nstate.LOADMEM" at cu.v(37)
+Info (10041): Inferred latch for "nstate.LOADALU" at cu.v(37)
+Info (10041): Inferred latch for "nstate.SUBWB" at cu.v(37)
+Info (10041): Inferred latch for "nstate.SUBALU" at cu.v(37)
+Info (10041): Inferred latch for "nstate.ADDWB" at cu.v(37)
+Info (10041): Inferred latch for "nstate.ADDALU" at cu.v(37)
+Info (10041): Inferred latch for "nstate.DEC" at cu.v(37)
+Info (10041): Inferred latch for "nstate.IF" at cu.v(37)
+Warning (12125): Using design file registerfile.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: registerFile
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:regFile"
+Warning (10175): Verilog HDL warning at registerfile.v(23): ignoring unsupported system task
+Warning (12125): Using design file alu.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: ALU
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu"
+Warning (10240): Verilog HDL Always Construct warning at alu.v(50): inferring latch(es) for variable "divA", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alu.v(50): inferring latch(es) for variable "divB", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alu.v(50): inferring latch(es) for variable "start", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alu.v(50): inferring latch(es) for variable "multiplier", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alu.v(50): inferring latch(es) for variable "multiplicand", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alu.v(50): inferring latch(es) for variable "carry", which holds its previous value in one or more paths through the always construct
+Warning (10230): Verilog HDL assignment warning at alu.v(90): truncated value with size 32 to match size of target (5)
+Info (10041): Inferred latch for "carry" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[0]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[1]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[2]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[3]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[4]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[5]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[6]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[7]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[8]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[9]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[10]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[11]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[12]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[13]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[14]" at alu.v(50)
+Info (10041): Inferred latch for "multiplicand[15]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[0]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[1]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[2]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[3]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[4]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[5]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[6]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[7]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[8]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[9]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[10]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[11]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[12]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[13]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[14]" at alu.v(50)
+Info (10041): Inferred latch for "multiplier[15]" at alu.v(50)
+Info (10041): Inferred latch for "start" at alu.v(50)
+Info (10041): Inferred latch for "divB[0]" at alu.v(50)
+Info (10041): Inferred latch for "divB[1]" at alu.v(50)
+Info (10041): Inferred latch for "divB[2]" at alu.v(50)
+Info (10041): Inferred latch for "divB[3]" at alu.v(50)
+Info (10041): Inferred latch for "divB[4]" at alu.v(50)
+Info (10041): Inferred latch for "divB[5]" at alu.v(50)
+Info (10041): Inferred latch for "divB[6]" at alu.v(50)
+Info (10041): Inferred latch for "divB[7]" at alu.v(50)
+Info (10041): Inferred latch for "divB[8]" at alu.v(50)
+Info (10041): Inferred latch for "divB[9]" at alu.v(50)
+Info (10041): Inferred latch for "divB[10]" at alu.v(50)
+Info (10041): Inferred latch for "divB[11]" at alu.v(50)
+Info (10041): Inferred latch for "divB[12]" at alu.v(50)
+Info (10041): Inferred latch for "divB[13]" at alu.v(50)
+Info (10041): Inferred latch for "divB[14]" at alu.v(50)
+Info (10041): Inferred latch for "divB[15]" at alu.v(50)
+Info (10041): Inferred latch for "divA[0]" at alu.v(50)
+Info (10041): Inferred latch for "divA[1]" at alu.v(50)
+Info (10041): Inferred latch for "divA[2]" at alu.v(50)
+Info (10041): Inferred latch for "divA[3]" at alu.v(50)
+Info (10041): Inferred latch for "divA[4]" at alu.v(50)
+Info (10041): Inferred latch for "divA[5]" at alu.v(50)
+Info (10041): Inferred latch for "divA[6]" at alu.v(50)
+Info (10041): Inferred latch for "divA[7]" at alu.v(50)
+Info (10041): Inferred latch for "divA[8]" at alu.v(50)
+Info (10041): Inferred latch for "divA[9]" at alu.v(50)
+Info (10041): Inferred latch for "divA[10]" at alu.v(50)
+Info (10041): Inferred latch for "divA[11]" at alu.v(50)
+Info (10041): Inferred latch for "divA[12]" at alu.v(50)
+Info (10041): Inferred latch for "divA[13]" at alu.v(50)
+Info (10041): Inferred latch for "divA[14]" at alu.v(50)
+Info (10041): Inferred latch for "divA[15]" at alu.v(50)
+Warning (12125): Using design file csa.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: CSA
+Info (12128): Elaborating entity "CSA" for hierarchy "ALU:alu|CSA:ADDER"
+Warning (12125): Using design file mul.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: MUL
+Info (12128): Elaborating entity "MUL" for hierarchy "ALU:alu|MUL:aasd"
+Warning (12125): Using design file shiftaddmul.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shiftaddmul
+Info (12128): Elaborating entity "shiftaddmul" for hierarchy "ALU:alu|MUL:aasd|shiftaddmul:abaaadad"
+Warning (10230): Verilog HDL assignment warning at shiftaddmul.v(22): truncated value with size 17 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at shiftaddmul.v(25): truncated value with size 32 to match size of target (4)
+Warning (12125): Using design file div.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: DIV
+Info (12128): Elaborating entity "DIV" for hierarchy "ALU:alu|DIV:dividerModule"
+Warning (10230): Verilog HDL assignment warning at div.v(30): truncated value with size 32 to match size of target (5)
+Warning (12125): Using design file memory.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: memory
+Info (12128): Elaborating entity "memory" for hierarchy "memory:mem"
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALU:alu|Cin" is missing source, defaulting to GND
+Warning (13012): Latch CU:cu|nstate.MULALU_462 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[13]
+Warning (13012): Latch CU:cu|nstate.DIVALU_424 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction[13]
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 55 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/Asus/Desktop/DSD/syn/output_files/processor.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3787 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 3769 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 30 warnings
+    Info: Peak virtual memory: 4767 megabytes
+    Info: Processing ended: Sun Jul 27 18:19:47 2025
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:06
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Asus/Desktop/DSD/syn/output_files/processor.map.smsg.
+
+

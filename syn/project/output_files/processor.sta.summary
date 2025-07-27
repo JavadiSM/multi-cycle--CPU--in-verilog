@@ -1,0 +1,113 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -11.838
+TNS   : -19630.331
+
+Type  : Slow 1200mV 85C Model Setup 'CU:cu|state.DIVALU'
+Slack : -4.310
+TNS   : -174.558
+
+Type  : Slow 1200mV 85C Model Setup 'CU:cu|state.DEC'
+Slack : -1.790
+TNS   : -8.373
+
+Type  : Slow 1200mV 85C Model Hold 'CU:cu|state.DEC'
+Slack : -0.954
+TNS   : -3.025
+
+Type  : Slow 1200mV 85C Model Hold 'CU:cu|state.DIVALU'
+Slack : -0.803
+TNS   : -7.758
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.084
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -2029.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CU:cu|state.DIVALU'
+Slack : 0.282
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CU:cu|state.DEC'
+Slack : 0.440
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -10.491
+TNS   : -17372.903
+
+Type  : Slow 1200mV 0C Model Setup 'CU:cu|state.DIVALU'
+Slack : -3.894
+TNS   : -154.859
+
+Type  : Slow 1200mV 0C Model Setup 'CU:cu|state.DEC'
+Slack : -1.656
+TNS   : -7.062
+
+Type  : Slow 1200mV 0C Model Hold 'CU:cu|state.DEC'
+Slack : -0.830
+TNS   : -2.429
+
+Type  : Slow 1200mV 0C Model Hold 'CU:cu|state.DIVALU'
+Slack : -0.715
+TNS   : -6.933
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.050
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -2029.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CU:cu|state.DIVALU'
+Slack : 0.378
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CU:cu|state.DEC'
+Slack : 0.414
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -6.420
+TNS   : -10513.689
+
+Type  : Fast 1200mV 0C Model Setup 'CU:cu|state.DIVALU'
+Slack : -2.328
+TNS   : -89.812
+
+Type  : Fast 1200mV 0C Model Setup 'CU:cu|state.DEC'
+Slack : -0.983
+TNS   : -2.052
+
+Type  : Fast 1200mV 0C Model Hold 'CU:cu|state.DEC'
+Slack : -0.608
+TNS   : -2.153
+
+Type  : Fast 1200mV 0C Model Hold 'CU:cu|state.DIVALU'
+Slack : -0.603
+TNS   : -7.754
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.094
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -2131.641
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CU:cu|state.DIVALU'
+Slack : 0.202
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CU:cu|state.DEC'
+Slack : 0.450
+TNS   : 0.000
+
+------------------------------------------------------------

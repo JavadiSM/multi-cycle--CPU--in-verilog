@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at processor.v(5): object "pc" differs only in case from object "PC" in the same scope
+Warning (10268): Verilog HDL information at div.v(11): always construct contains both blocking and non-blocking assignments
